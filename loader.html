@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loader Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+    }
+
+    div {
+      width: 2.5em;
+      height: 3em;
+      border: 3px solid transparent;
+      border-top-color: #fc2f70;
+      border-bottom-color: #fc2f70;
+      border-radius: 50%;
+      animation: spin-stretch 2s ease infinite;
+    }
+
+    @keyframes spin-stretch {
+      50% {
+        transform: rotate(360deg) scale(0.4, 0.33);
+        border-width: 8px;
+      }
+      100% {
+        transform: rotate(720deg) scale(1, 1);
+        border-width: 3px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loader Animation -->
+  <div></div>
+
+  <script>
+    // Delay in milliseconds (e.g., 3000ms = 3 seconds)
+    const delay = 3000; 
+
+    // Set a timeout to redirect after the delay
+    setTimeout(function() {
+      // Replace 'nextpage.html' with the actual page you want to redirect to
+      window.location.href = 'payment.html';
+    }, delay);
+  </script>
+
+</body>
+</html>

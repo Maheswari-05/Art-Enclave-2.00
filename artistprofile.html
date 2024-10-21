@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #fff;
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sidebar a:hover {
+            background-color: #ff707e;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            width: calc(100% - 250px);
+        }
+
+        /* Header Section */
+        .header {
+            background-color:#f2808a;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+        }
+
+        .artist-name {
+            font-size: 1.75em;
+            margin-top: 20px;
+        }
+
+        /* Typing Animation */
+        .tagline {
+            font-size: 1.2em;
+            font-style: italic;
+            color: white;
+            margin-top: 10px;
+            width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid white;
+            animation: typing 4s steps(40, end) forwards;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Dropdown Sections */
+        .dropdown {
+            margin-bottom: 20px;
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .dropdown h2 {
+            cursor: pointer;
+            padding: 10px;
+            margin: 0;
+            color: #f2808a;
+        }
+
+        .dropdown-content {
+            display: none;
+            padding: 15px;
+            background-color: #1a1a1a;
+            border-top: 1px solid #ff4b5c;
+        }
+
+        .dropdown-content p, .dropdown-content ul, .dropdown-content img {
+            color: #e1e1e1;
+        }
+
+        .dropdown-content ul {
+            display:flex;
+            justify-content: space-evenly;
+            list-style: none;
+            padding: 0;
+        }
+
+        .dropdown-content ul li {
+            background-color: #2a2a2a;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        /* Portfolio Grid */
+        .artwork-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .artwork-grid img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 75, 92, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #ff4b5c;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        hr {
+            width: 280px;
+        }
+        li a{
+            color: #f2808a;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <a href="#bio">About the Artist</a>
+        <hr>
+        <a href="#portfolio">Portfolio</a>
+        <hr>
+        <a href="#achievements">Achievements</a>
+        <hr>
+        <a href="#upcoming">Upcoming Projects</a>
+        <hr>
+        <a href="artistportal.html" class="upload-art">Upload Art</a> <!-- Upload Art Link -->
+        <hr>
+        <a href="#contact" class="sidebar-item">Contact</a> <!-- Contact Section Link -->
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+
+        <!-- Header Section -->
+        <header class="header reveal">
+            <img src="man.png" alt="Artist Image" class="profile-pic">
+            <h1 class="artist-name">Alice Zen</h1>
+            <p class="tagline">"Expressing emotions through vibrant colors"</p>
+        </header>
+
+        <!-- Bio Section -->
+        <section id="bio" class="dropdown reveal">
+            <h2>About the Artist</h2>
+            <div class="dropdown-content">
+                <p>
+                    Hello, I’m Alice Zen, a visual artist with a deep passion for blending traditional techniques with modern elements. My work aims to provoke thought, evoke emotion, and challenge perceptions. Through art, I explore themes of [identity, transformation, human connection, or any themes important to Alice Zen], reflecting both personal experiences and universal truths that we all share.
+
+                    I grew up in [location], where I developed a fascination with [art, nature, technology, etc.]. From a young age, I immersed myself in various artistic mediums, constantly experimenting until I found my true voice in [chosen medium, e.g., painting, sculpture, mixed media]. This journey led me to exhibit my work in [local, national, or international] galleries, where I’ve had the honor of connecting with art lovers and fellow creatives.
+                </p>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="dropdown reveal">
+            <h2>Portfolio</h2>
+            <div class="dropdown-content">
+                <div class="artwork-grid">
+                    <img src="art1.png" alt="Artwork 1">
+                    <img src="feature4.png" alt="Artwork 2">
+                    <img src="feature3.png" alt="Artwork 3">
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="dropdown reveal">
+            <h2>Achievements & Exhibitions</h2>
+            <div class="dropdown-content">
+                <ul>
+                    <li>Solo Exhibition at XYZ Gallery, 2023</li>
+                    <li>Awarded Best Modern Artist, 2022</li>
+                    <li>Group Exhibition at ABC Art Fair, 2021</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Upcoming Projects Section -->
+        <section id="upcoming" class="dropdown reveal">
+            <h2>Upcoming Projects</h2>
+            <div class="dropdown-content">
+                <p>
+                    I am currently working on a new collection exploring the intersection of technology and nature. Upcoming exhibitions include a solo show at the Art Studio Gallery, scheduled for late 2024.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="dropdown reveal">
+            <h2>Contact Information</h2>
+            <div class="dropdown-content">
+                <p>If you’d like to get in touch with me, feel free to reach out via any of the following:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:alicezenart@example.com">alicezenart@example.com</a></li>
+                    <li><strong>Phone:</strong> +1 234 567 890</li>
+                    <li><strong>Address:</strong> 123 Art Street, City, Country</li>
+                </ul>
+                <p>Reach me through my socials:</p>
+                <ul>
+                    <li><a href="https://www.instagram.com/alicezenart" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.facebook.com/alicezenart" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.twitter.com/alicezenart" target="_blank">Twitter</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Alice Zen. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript for Scroll Animation and Dropdowns -->
+    <script>
+        // Dropdown toggle
+        document.querySelectorAll('.dropdown h2').forEach(dropdown => {
+            dropdown.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+
+        reveals.forEach(reveal => {
+            observer.observe(reveal);
+        });
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Gallery Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Add the bouncing animation */
+    @keyframes bounce {
+      0% {
+        transform: translateX(-200px);
+      }
+      50% {
+        transform: translateX(30px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .payment-container {
+      background-color: #333333;
+      border-radius: 10px;
+      padding: 30px;
+      width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      color: white;
+      animation: bounce 1s ease-out;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ff4b5c;
+    }
+
+    label {
+      color: white;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="text"], input[type="email"], input[type="number"], input[type="password"] {
+      background-color: #444;
+      color: white;
+      border:1px solid #ff4b5c;
+    }
+
+    input[type="submit"] {
+      background-color: #ff4b5c;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .paypal{
+        width:370px;
+        height:50px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #e04352;
+    }
+
+    .cards img {
+      width: 50px;
+      margin-right: 10px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .button{
+        border-radius: 5px;
+        width:200px;
+        margin-left: 75px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="payment-container">
+    <h2>Art Enclave Payment</h2>
+
+    <div class="cards">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" alt="Mastercard">
+      <img src="paypal.png" class="paypal" alt="PayPal">
+    </div>
+
+    <form id="payment-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="card-number">Credit Card Number</label>
+      <input type="number" id="card-number" name="card-number" placeholder="1111 2222 3333 4444" required>
+
+      <label for="exp-month">Expiration Month</label>
+      <input type="text" id="exp-month" name="exp-month" placeholder="MM" required>
+
+      <label for="exp-year">Expiration Year</label>
+      <input type="text" id="exp-year" name="exp-year" placeholder="YYYY" required>
+
+      <label for="cvv">CVV</label>
+      <input type="password" id="cvv" name="cvv" placeholder="123" required>
+
+      <input type="submit" value="Submit Payment" class="button">
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('payment-form');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const cardNumber = document.getElementById('card-number').value;
+      const expMonth = document.getElementById('exp-month').value;
+      const expYear = document.getElementById('exp-year').value;
+      const cvv = document.getElementById('cvv').value;
+
+      if (name && email && cardNumber && expMonth && expYear && cvv) {
+        alert('Payment Successful');
+      } else {
+        alert('Please fill in all fields');
+      }
+    });
+  </script>
+
+</body>
+</html>
